@@ -1,6 +1,6 @@
 'use strict';
 
-const api = (function() {
+const api = (function () {
   const BASE_URL =
     'https://thinkful-list-api.herokuapp.com/PaymanAlex/bookmarks';
   const headers = {
@@ -34,8 +34,14 @@ const api = (function() {
     return listApiFetch(`${BASE_URL}`, params);
   }
 
+  function deleteItem(id) {
+    const params = { method: 'DELETE', headers };
+    return listApiFetch(`${BASE_URL}/${id}`, params);
+  }
+
   return {
     createItem,
+    deleteItem,
     getItems
   };
 })();

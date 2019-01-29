@@ -108,7 +108,6 @@ const bm = (function () {
 
   function handleClickOnBookmark() {
     $('#js-bookmarks').on('click', '.js-bookmark-header', event => {
-      debugger;
       const liItem = $(event.currentTarget).parent();
       const id = liItem.data('item-id');
       store.setExpandedId(id);
@@ -117,17 +116,24 @@ const bm = (function () {
   }
 
   function handleDeleteBookmark() {
-    $('.js-delete-entry ').click(function (event) {
-      //getid via jquery
-      //api call
-      //promise statement handles deleting from store
+    $('#js-bookmarks').on('click', '.js-delete-entry', function (event) {
+      const id = $(event.currentTarget).closest('li').data('item-id');
+      api
+        .deleteItem(id)
+        .then(() => {
+          store.deleteBookmark(id);
+          render();
+        })
+        .catch(error => {
+          //handle error
+        });
     });
+
   }
 
   function handleClickEditBookmark() {
 
     $('#js-bookmarks').on('click', '.js-edit-entry-button', function (event) {
-      debugger;
       store.setEditing(true);
       render();
     });
@@ -139,10 +145,7 @@ const bm = (function () {
   }
 
   function handleEditCancelBookmark() {
-    $('.js-confirm-edit').click(function (event) {
-      //getid via jquery
-      store.setEditing(false);
-    });
+
   }
 
   function handleAddNewBookmark() {

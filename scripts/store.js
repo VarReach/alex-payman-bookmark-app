@@ -4,6 +4,12 @@ const store = (function () {
     this.addForm = value;
   }
 
+  function deleteBookmark(id) {
+    this.bookmarks = this.bookmarks.filter(element => element.id !== id);
+    this.editing = false;
+    this.expandedId = null;
+  }
+
   function expandBookmark(id) {
     const obj = findById(id);
     //set epxnaded
@@ -37,7 +43,7 @@ const store = (function () {
     setEditing,
     expandBookmark,
     setExpandedId,
-
+    deleteBookmark,
     editing: false,
     expandedId: null,
     bookmarks: [],
