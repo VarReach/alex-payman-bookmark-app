@@ -32,3 +32,7 @@ button:hover:disabled {
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
+
+.js-bookmark-entry {
+  background-color: blue;
+}

@@ -29,8 +29,12 @@ const api = (function() {
     return listApiFetch(`${BASE_URL}`, params);
   }
 
+  function getItems() {
+    return listApiFetch(`${BASE_URL}`);
+  }
+
   return {
-    listApiFetch,
-    createItem
+    createItem,
+    getItems
   };
 })();

@@ -18,16 +18,17 @@ const store = (function() {
     //set to true
   }
 
-  function addNewBookmark(...args) {
-    const newBookmark = {
-      id: args[0],
-      name: args[1],
-      description: args[2],
-      rating: args[3],
-      url: args[4]
-    };
+  function setExpandedId(id) {
+    if (id !== this.expandedId) { 
+      this.setEditing(false);
+      this.expandedId = id;
+    } else if (this.editing === false) {
+      this.expandedId = null;
+    }
+  }
 
-    this.bookmarks.push(newBookmark);
+  function addNewBookmark(object) {
+    this.bookmarks.push(object);
   }
 
   return {
@@ -35,6 +36,8 @@ const store = (function() {
     addNewBookmark,
     setEditing,
     expandBookmark,
+    setExpandedId,
+
     editing: false,
     expandedId: null,
     bookmarks: [],
