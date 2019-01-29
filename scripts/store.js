@@ -33,7 +33,7 @@ const store = (function() {
   return {
     setAdded,
     addNewBookmark,
-    editBookmark,
+    setEditing,
     expandBookmark,
     editing: false,
     expandedId: null,
