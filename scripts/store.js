@@ -1,7 +1,7 @@
 'use strict';
-const store = (function() {
-  function setAdded(value) {
-    this.added = value;
+const store = (function () {
+  function setAddForm(value) {
+    this.addForm = value;
   }
 
   function expandBookmark(id) {
@@ -19,7 +19,7 @@ const store = (function() {
   }
 
   function setExpandedId(id) {
-    if (id !== this.expandedId) { 
+    if (id !== this.expandedId) {
       this.setEditing(false);
       this.expandedId = id;
     } else if (this.editing === false) {
@@ -32,7 +32,7 @@ const store = (function() {
   }
 
   return {
-    setAdded,
+    setAddForm,
     addNewBookmark,
     setEditing,
     expandBookmark,
@@ -41,7 +41,7 @@ const store = (function() {
     editing: false,
     expandedId: null,
     bookmarks: [],
-    added: false,
+    addForm: false,
     error: null,
     searchTerm: '',
     ratingFilter: 0

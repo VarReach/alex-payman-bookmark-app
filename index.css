@@ -28,11 +28,16 @@ button:hover:disabled {
   margin: 0 auto;
 }
 
+/* change from js*/
 #js-bookmarks li {
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
 
-.js-bookmark-entry {
+.bookmark-header {
   background-color: blue;
+}
+
+img {
+  display: none;
 }

@@ -30,7 +30,8 @@ const api = (function() {
   }
 
   function getItems() {
-    return listApiFetch(`${BASE_URL}`);
+    const params = { method: 'GET', headers };
+    return listApiFetch(`${BASE_URL}`, params);
   }
 
   return {
