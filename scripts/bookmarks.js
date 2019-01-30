@@ -36,16 +36,18 @@ const bm = (function () {
               <img src="" alt="website Icon" class="bookmark-icon">
               <span class="js-website-name website-name">${bookmark.title}</span>
               <span class="js-website-url website-url">${bookmark.url}</span>
-              <div class="star-rating js-star-rating">
-                  <span>${bookmark.rating}</span>
+              <div class="rating js-star-rating">
+                  ${ratingHTML(false, bookmark.rating)}
               </div>
             </div>
-            <label for="js-edit-entry edit-entry" class="tooltip">
-              <button class="js-edit-entry-button"><i class="fas fa-pencil-square"></i></button>
-            </label>
-            <div class="description-entry js-description-entry">${bookmark.desc}</div>
-            <button class="js-delete-entry delete-entry"><i class="fas fa-trash"></i></button>
-            <a target="_blank" href="${bookmark.url}">Visit Site</a>
+            <div class="expanded-text-container">
+              <p class="description-entry js-description-entry">${bookmark.desc}</p>
+              <a target="_blank" href="${bookmark.url}">Visit Site</a>
+            </div>
+            <div class="button-container">
+              <button class="js-edit-entry-button"><i class="fas fa-edit"></i></button>
+              <button class="js-delete-entry delete-entry"><i class="fas fa-trash"></i></button>
+            </div>
         </li>
         `;
   }
