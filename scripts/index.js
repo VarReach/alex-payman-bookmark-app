@@ -7,6 +7,7 @@ $.fn.extend({
     const formData = new FormData(this[0]);
     const o = {};
     formData.forEach((val, name) => (o[name] = val));
+    if (o["desc"] === '') { o["desc"] = " "; }
     return JSON.stringify(o);
   }
 });

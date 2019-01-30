@@ -10,18 +10,17 @@ const store = (function () {
     this.expandedId = null;
   }
 
-  function expandBookmark(id) {
-    const obj = findById(id);
-    //set epxnaded
-  }
-
   function findById(id) {
-    //find element in array by id
+    return this.bookmarks.find(bookmark => bookmark.id === id);
   }
 
   function setEditing(value) {
     this.editing = value;
     //set to true
+  }
+
+  function updateRatingsFilter(num) {
+    this.ratingFilter = num;
   }
 
   function setExpandedId(id) {
@@ -37,13 +36,24 @@ const store = (function () {
     this.bookmarks.push(object);
   }
 
+  function editBookmark(obj, id) {
+    debugger;
+    const bookmark = this.findById(id);
+    obj = JSON.parse(obj);
+    Object.assign(bookmark, obj);
+    this.setEditing(false);
+  }
+
   return {
     setAddForm,
     addNewBookmark,
     setEditing,
-    expandBookmark,
     setExpandedId,
     deleteBookmark,
+    editBookmark,
+    findById,
+    updateRatingsFilter,
+
     editing: false,
     expandedId: null,
     bookmarks: [],

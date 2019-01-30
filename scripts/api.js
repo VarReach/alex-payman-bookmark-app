@@ -29,6 +29,11 @@ const api = (function () {
     return listApiFetch(`${BASE_URL}`, params);
   }
 
+  function editItem(data, id) {
+    const params = { method: 'PATCH', headers, body: data };
+    return listApiFetch(`${BASE_URL}/${id}`, params);
+  }
+
   function getItems() {
     const params = { method: 'GET', headers };
     return listApiFetch(`${BASE_URL}`, params);
@@ -42,6 +47,7 @@ const api = (function () {
   return {
     createItem,
     deleteItem,
-    getItems
+    getItems,
+    editItem
   };
 })();
