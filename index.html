@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Bookmarks Manager</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
   <link rel="stylesheet" href="index.css" type="text/css" />
 </head>
 
 <body>
-  <header class="container" role="banner">
-    <h2 class="site-title">Bookmarks Manager</h2>
+  <header role="banner">
+    <h2 class="site-title">Bookmarks <span>Manager</span></h2>
     <nav role="navigation">
       <input type="text" placeholder="Search bookmarks" id="js-search-entry" />
       <select id="js-filter-by-rating-entry">
@@ -49,16 +52,14 @@
         <label for="add-new-description-entry" class="add-new-label">Description
           <textarea name="desc" type="text" placeholder="Description..." class="add-new-input" id="add-new-description-entry"></textarea>
         </label>
-        <label for="js-add-new-submit" class="tooltip">
-          <button type="submit" id="js-add-new-submit">
-            <i class="fa-icons tooltip-button"></i>Submit
+        <div class="button-container">
+          <button aria-label="Submit Button" type="submit" id="js-add-new-submit">
+            <i class="fas fa-check tooltip-button"></i>
           </button>
-        </label>
-        <label for="js-add-new-submit" class="tooltip">
-          <button type="reset" id="js-add-new-cancel">
-            <i class="fa-icons tooltip-button"></i>Cancel
+          <button aria-label="Cancel Button" type="reset" id="js-add-new-cancel">
+            <i class="fas fa-times tooltip-button"></i>
           </button>
-        </label>
+        </div>
       </fieldset>
     </form>
     <section class="sub-container">

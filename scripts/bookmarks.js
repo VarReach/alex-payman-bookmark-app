@@ -290,12 +290,6 @@ const bm = (function () {
       $(this).closest('div').find('span').removeClass('checked');
       $(this).parent().addClass('checked');
     });
-    // $('#js-bookmarks').on('click', '.js-star-rating input', function() {
-    //   $('#js-bookmarks .js-star-rating.rating-edit span').removeClass('checked');
-    //   $(this).parent().addClass('checked');
-    // });
-
-    //hover function
 
     $('main').on('mouseenter', '.js-star-rating input', function () {
 

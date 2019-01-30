@@ -1,9 +1,11 @@
 * {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
   font-family: sans-serif;
+  background-color: #e7e7e7;
 }
 
 button,
@@ -28,6 +30,19 @@ button:hover:disabled {
   margin: 0 auto;
 }
 
+fieldset {
+  border: none;
+}
+
+.sub-container {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.button-container {
+  float: right;
+}
+
 /* change from js*/
 #js-bookmarks li {
   border: 1px solid #ccc;
@@ -44,9 +59,19 @@ img {
 
 .error-container {
   padding: 20px;
-  background-color: #f44336; /* Red */
+  background-color: #eb5353; /* Red */
   color: white;
   margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+button { 
+  width: 30px;
+  height: 30px;
+  background-color: #e7e7e7;
+  color: #4f4f4f;
+  border-radius: 50%;
+  border: none;
 }
 
 /* The close button */
@@ -98,4 +123,85 @@ img {
 .rating span.checked label,
 .rating span.checked ~ span label {
   background:#f2c846;
+}
+
+/* header */
+
+header { 
+  display: flex;
+  height: 80px;
+  background-color: #309dcf;
+  margin: 0 0 40px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 18px 5px rgba(0,0,0,0.22);
+}
+
+header h2 {
+  display: inline-block;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+
+header h2 span {
+  font-weight: 300;
+}
+
+nav {
+  display: inline-block;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 600;
+  color:#81858a;
+}
+
+nav input[type=text] {
+  box-shadow:
+    0 0 3px 0 rgba(0,0,0,0.06),
+    0 5px 4px 0 rgba(0,0,0,0.1);
+  border: 1px solid white;
+  font-size: 10pt;
+  width: 238px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+nav input[type=text]:focus {
+  outline: none;
+  border: 1px solid #196b96;
+}
+
+nav select {
+  box-shadow:
+    0 0 3px 0 rgba(0,0,0,0.06),
+    0 5px 4px 0 rgba(0,0,0,0.1);
+  border: 1px solid white;
+  font-size: 10pt;
+  width: 96px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+nav select option {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 600;
+  color:#81858a;
+}
+
+nav select:focus {
+  outline: none;
+  border: 1px solid #196b96;
+}
+
+nav button {
+  height: 40px;
+  width: 40px;
+  background-color: #99d3df;
+  border: none;
+  box-shadow:
+    0 0 3px 0 rgba(0,0,0,0.06),
+    0 5px 4px 0 rgba(0,0,0,0.1);
+  color: white;
 }
