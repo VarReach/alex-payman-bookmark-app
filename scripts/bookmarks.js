@@ -18,6 +18,7 @@ const bm = (function () {
              ${ratingHTML(true, bookmark.rating)}
           </div>
         </div>
+        <textarea class="edit-description-entry js-edit-description-entry" rows="5" name="desc" >${bookmark.desc}</textarea>
         <ul class="edit-buttons js-edit-buttons">
           <label for="js-confirm-edit" class="tooltip">
               <button type="submit" class="js-confirm-edit confirm-edit"><i class="fa-icon fa-icon-check"></i>Submit</button>
@@ -25,10 +26,9 @@ const bm = (function () {
           <label for="js-cancel-edit" class="tooltip">
               <button type="reset" class="js-cancel-edit cancel-edit"><i class="fa-icons tooltip-button"></i>Cancel</button>
           </label>
+          <button class="js-delete-entry delete-entry"><i class="fa-icons fa-trashcan"></i>Delete</button>
         </ul>
-        <textarea class="edit-description-entry js-edit-description-entry" name="desc" >${bookmark.desc}</textarea>
-        <button class="js-delete-entry delete-entry"><i class="fa-icons fa-trashcan"></i>Delete</button>
-        <button class="visit-entry-url js-visit-entry-url"><a href="${bookmark.url}">Visit Site</a></button>
+        
       </form>
     </li>`;
   }

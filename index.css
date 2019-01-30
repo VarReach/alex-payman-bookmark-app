@@ -21,10 +21,6 @@ button:hover:disabled {
   cursor: default;
 }
 
-.hidden {
-  display: none;
-}
-
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -36,22 +32,26 @@ fieldset {
 
 .sub-container {
   border-radius: 10px;
-  background-color: white;
 }
 
 .button-container {
   float: right;
 }
 
-/* change from js*/
-#js-bookmarks li {
+.bookmark-list{
+  list-style:none;
+  padding-left:0px;
+  background-color:white;
+}
+
+.bookmark-list li {
   border: 1px solid #ccc;
-  margin-bottom: 10px;
 }
 
 .bookmark-header {
   background-color: blue;
 }
+
 
 img {
   display: none;
@@ -204,4 +204,88 @@ nav button {
     0 0 3px 0 rgba(0,0,0,0.06),
     0 5px 4px 0 rgba(0,0,0,0.1);
   color: white;
+}
+
+.add-new-form{
+  display: flex;
+  padding:25px;
+}
+
+.add-new-label {
+  display:inline-block;
+  width:100%;
+}
+
+.title-label{
+  width:27%;
+  
+}
+
+.url-label{
+  width:60%;
+}
+
+.url-label input{
+  width:80%;
+}
+
+.description-input{
+  display:block;
+  width:100%;
+}
+
+fieldset{
+  width:100%;
+}
+
+.button-container{
+  margin-top: 15px;
+}
+
+.bookmark-entry{
+  padding:25px;
+}
+
+.bookmark-header-edit{
+  padding-bottom:15px;
+}
+
+.website-url-edit{
+  width:61%;
+}
+
+.edit-buttons{
+  display:block;
+  padding-left:0px;
+}
+
+.edit-buttons label {
+}
+
+.edit-description-entry {
+  width:100%;
+}
+
+.rating-edit{
+  padding-top: 3px;
+}
+
+.delete-entry{
+  float:right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hidden {
+  display: none;
 }
