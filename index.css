@@ -32,6 +32,7 @@ fieldset {
 
 .sub-container {
   border-radius: 10px;
+  background-color: white;
 }
 
 .button-container {
@@ -52,9 +53,35 @@ fieldset {
   background-color: blue;
 }
 
+label {
+  margin-top: 10px;
+}
+
+textarea {
+  resize: none;
+  margin-bottom: 10px;
+}
+
 
 img {
   display: none;
+}
+
+input, textarea {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #4f4f4f;
+  padding: 5px;
+  border: 1px solid grey;
+  box-shadow:
+    0 0 3px 0 rgba(0,0,0,0.06),
+    0 5px 4px 0 rgba(0,0,0,0.1);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #196b96;
 }
 
 .error-container {
@@ -162,7 +189,6 @@ nav input[type=text] {
     0 0 3px 0 rgba(0,0,0,0.06),
     0 5px 4px 0 rgba(0,0,0,0.1);
   border: 1px solid white;
-  font-size: 10pt;
   width: 238px;
   height: 40px;
   padding-left: 10px;
@@ -198,6 +224,7 @@ nav select:focus {
 nav button {
   height: 40px;
   width: 40px;
+  border-radius: 0;
   background-color: #99d3df;
   border: none;
   box-shadow:

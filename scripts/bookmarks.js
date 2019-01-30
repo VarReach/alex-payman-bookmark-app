@@ -20,13 +20,9 @@ const bm = (function () {
         </div>
         <textarea class="edit-description-entry js-edit-description-entry" rows="5" name="desc" >${bookmark.desc}</textarea>
         <ul class="edit-buttons js-edit-buttons">
-          <label for="js-confirm-edit" class="tooltip">
-              <button type="submit" class="js-confirm-edit confirm-edit"><i class="fa-icon fa-icon-check"></i>Submit</button>
-          </label>
-          <label for="js-cancel-edit" class="tooltip">
-              <button type="reset" class="js-cancel-edit cancel-edit"><i class="fa-icons tooltip-button"></i>Cancel</button>
-          </label>
-          <button class="js-delete-entry delete-entry"><i class="fa-icons fa-trashcan"></i>Delete</button>
+          <button aria-label="Submit Button" type="submit" class="js-confirm-edit confirm-edit"><i class="fas fa-check"></i></button>
+          <button aria-label="Cancel Button" type="reset" class="js-cancel-edit cancel-edit"><i class="fas fa-times"></i></button>
+          <button aria-label="Delete Button" class="js-delete-entry delete-entry"><i class="fas fa-trash"></i></button>
         </ul>
         
       </form>
@@ -45,11 +41,11 @@ const bm = (function () {
               </div>
             </div>
             <label for="js-edit-entry edit-entry" class="tooltip">
-              <button type="submit" class="js-edit-entry-button"><i class="fa-icons fa-pencil"></i>Edit</button>
+              <button class="js-edit-entry-button"><i class="fas fa-pencil-square"></i></button>
             </label>
             <div class="description-entry js-description-entry">${bookmark.desc}</div>
-            <button class="js-delete-entry delete-entry"><i class="fa-icons fa-trashcan"></i>Delete</button>
-            <button class="visit-entry-url js-visit-entry-url"><a target="_blank" href="${bookmark.url}">Visit Site</a></button>
+            <button class="js-delete-entry delete-entry"><i class="fas fa-trash"></i></button>
+            <a target="_blank" href="${bookmark.url}">Visit Site</a>
         </li>
         `;
   }
