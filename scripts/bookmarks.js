@@ -1,8 +1,10 @@
 'use strict';
 
 /* global store, api */
+var selectedIndex;
 
 const bm = (function () {
+
 
   function editTemplate(bookmark) {
     return `
@@ -54,6 +56,7 @@ const bm = (function () {
 
   function ratingHTML(editing, rating) {
     let string = '';
+    rating = parseInt(rating);
     for (let i = 5; i > 0; i--) {
       if (editing) {
         string += `<span class="${(i === rating) ? 'checked' : ''}"><input type="radio" name="rating" id="star-${i}" value="${i}"><label for="star-${i}"></label></span>`
@@ -97,6 +100,7 @@ const bm = (function () {
   }
 
   function render() {
+    selectedIndex = 0;
     let items = [...store.bookmarks];
 
     if (store.addForm) {
@@ -276,11 +280,12 @@ const bm = (function () {
 
   function resetRatingEntry() {
     $('.js-add-new-form .rating span').removeClass('checked');
-    debugger;
   }
 
   function handleRatingButtons() {
-    $('main').on('click', '.js-star-rating input', function() {
+    selectedIndex = 0;
+    $('main').on('click', '.js-star-rating input', function () {
+      selectedIndex = $(this).closest('div').find('span.checked input').val();
       // $('.js-add-new-form .js-star-rating.rating-edit span').removeClass('checked');
       $(this).closest('div').find('span').removeClass('checked');
       $(this).parent().addClass('checked');
@@ -291,17 +296,24 @@ const bm = (function () {
     // });
 
     //hover function
-    let selectedIndex = 0;
-    $('main').on('mouseenter', '.js-star-rating input', function() {
-      const checked = $(this).closest('div').find('span.checked');
-      if (checked) {
-        debugger;
+
+    $('main').on('mouseenter', '.js-star-rating input', function () {
+
+      const $el = $(this).closest('div');
+      if ($(this).closest('div').find('span.checked input').length !== 0) {
+        selectedIndex = $(this).closest('div').find('span.checked input').val();
       }
-// .removeClass('hover');
+
+      if (selectedIndex !== 0) {
+        $el.find('span.checked').removeClass('checked');
+      }
+      $(this).closest('div').find('.hover').removeClass('hover');
       $(this).parent().addClass('hover');
     });
-    $('main').on('mouseleave', '.js-star-rating', function() {
-      $(this).closest('div').find('span').removeClass('hover');
+    $('main').on('mouseleave', '.rating-edit', function () {
+      $(this).closest('div').find('.hover').removeClass('hover');
+      $(this).closest('div').find(`#star-${selectedIndex}`).parent().addClass('checked');
+
     });
   }
 
