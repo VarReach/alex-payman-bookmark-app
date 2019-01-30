@@ -4,10 +4,8 @@ const store = (function () {
     this.addForm = value;
   }
 
-  function deleteBookmark(id) {
-    this.bookmarks = this.bookmarks.filter(element => element.id !== id);
-    this.editing = false;
-    this.expandedId = null;
+  function setError(message) {
+    this.error = message;
   }
 
   function findById(id) {
@@ -32,12 +30,21 @@ const store = (function () {
     }
   }
 
+  function setSearchTerm(term) {
+    this.searchTerm = term;
+  }
+
   function addNewBookmark(object) {
     this.bookmarks.push(object);
   }
 
+  function deleteBookmark(id) {
+    this.bookmarks = this.bookmarks.filter(element => element.id !== id);
+    this.editing = false;
+    this.expandedId = null;
+  }
+
   function editBookmark(obj, id) {
-    debugger;
     const bookmark = this.findById(id);
     obj = JSON.parse(obj);
     Object.assign(bookmark, obj);
@@ -53,7 +60,8 @@ const store = (function () {
     editBookmark,
     findById,
     updateRatingsFilter,
-
+    setSearchTerm,
+    setError,
     editing: false,
     expandedId: null,
     bookmarks: [],

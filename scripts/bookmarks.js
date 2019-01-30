@@ -98,17 +98,33 @@ const bm = (function () {
     }
 
     //search filter
+    const searchFilter = store.searchTerm;
+    if (searchFilter !== '') {
+      items = items.filter(item => item.desc.includes(searchFilter) || item.title.includes(searchFilter));
+    }
 
     //rating filter
     const ratingFilter = store.ratingFilter;
     if (ratingFilter >= 1) {
       items = items.filter(item => item.rating && item.rating >= ratingFilter);
     }
-    //error
 
     //render the bookmarks
     const bookmarksString = generateBookmarksString(items);
     $('#js-bookmarks').html(bookmarksString);
+
+    //render the error
+    renderError();
+  }
+
+  function renderError() {
+    if (store.error) {
+      $('.js-error-alert').removeClass('hidden');
+      $('#error-msg').text(store.error);
+    } else {
+      $('.js-error-alert').addClass('hidden');
+    }
+
   }
 
   function handleRatingsFilter() {
@@ -138,7 +154,8 @@ const bm = (function () {
           render();
         })
         .catch(error => {
-          //handle error
+          store.setError(error.message);
+          render();
         });
     });
 
@@ -165,7 +182,8 @@ const bm = (function () {
           render();
         })
         .catch(error => {
-          //handle error
+          store.setError(error.message);
+          render();
         });
 
       //promise statement
@@ -179,7 +197,7 @@ const bm = (function () {
   }
 
   function handleEditCancelBookmark() {
-    $('#js-bookmarks').on('reset', '.js-bookmark-edit-form', function(event) {
+    $('#js-bookmarks').on('reset', '.js-bookmark-edit-form', function (event) {
       store.setEditing(false);
       render();
     });
@@ -215,7 +233,8 @@ const bm = (function () {
           render();
         })
         .catch(error => {
-          //handle error
+          store.setError(error.message);
+          render();
         });
 
       //promise statement
@@ -225,6 +244,23 @@ const bm = (function () {
       //catch
       store.setError();
       render();*/
+    });
+  }
+
+  function handleSearchFilter() {
+    $('#js-search-entry').on('keyup', function (event) {
+      const term = $(event.currentTarget).val();
+      store.setSearchTerm(term);
+      render();
+    });
+  }
+
+  function handleCloseErrorAlert() {
+    $('.error-close-btn').click(function (event) {
+      $('#error-msg').empty();
+      store.setError(null);
+      render();
+
     });
   }
 
@@ -238,6 +274,8 @@ const bm = (function () {
     handleEditCancelBookmark();
     handleRatingsFilter();
     handleClickOnBookmark();
+    handleSearchFilter();
+    handleCloseErrorAlert();
   }
 
   return { render, bindEventListeners };
