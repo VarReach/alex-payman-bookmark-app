@@ -12,12 +12,8 @@ const bm = (function () {
           <img src="" alt="website Icon" class="bookmark-icon">
           <input value="${bookmark.title}" name="title" class="js-website-name-edit website-name-edit">
           <input value="${bookmark.url}" name="url" class="js-website-url-edit website-url-edit">
-          <div class="star-rating js-star-rating">
-              <span><input type="radio" name="rating" id="star-5" value="5"><label for="star-5"></label></span>
-              <span><input type="radio" name="rating" id="star-4" value="4"><label for="star-4"></label></span>
-              <span><input type="radio" name="rating" id="star-3" value="3"><label for="star-3"></label></span>
-              <span><input type="radio" name="rating" id="star-2" value="2"><label for="star-2"></label></span>
-              <span><input type="radio" name="rating" id="star-1" value="1"><label for="star-1"></label></span>
+          <div class="rating rating-edit js-star-rating">
+             ${ratingHTML(true, bookmark.rating)}
           </div>
         </div>
         <ul class="edit-buttons js-edit-buttons">
@@ -56,6 +52,18 @@ const bm = (function () {
         `;
   }
 
+  function ratingHTML(editing, rating) {
+    let string = '';
+    for (let i = 5; i > 0; i--) {
+      if (editing) {
+        string += `<span class="${(i === rating) ? 'checked' : ''}"><input type="radio" name="rating" id="star-${i}" value="${i}"><label for="star-${i}"></label></span>`
+      } else {
+        string += `<span class="${(i === rating) ? 'checked' : ''}"><label></label></span>`
+      }
+    }
+    return string;
+  }
+
   function defaultTemplate(bookmark) {
     return `
         <li class="js-bookmark-entry bookmark-entry condensed" data-item-id="${bookmark.id}">
@@ -63,8 +71,8 @@ const bm = (function () {
             <img src="" alt="website Icon" class="bookmark-icon">
             <span class="js-website-name website-name">${bookmark.title}</span>
             <span class="js-website-url website-url">${bookmark.url}</span>
-            <div class="star-rating js-star-rating">
-              <span>${bookmark.rating}</span>
+            <div class="rating js-star-rating">
+              ${ratingHTML(false, bookmark.rating)}
             </div>
           </div
         </li>`;
@@ -214,6 +222,7 @@ const bm = (function () {
   function handleCancelNewBookmark() {
     $('#js-add-new-cancel').click(function (event) {
       store.setAddForm(false);
+      resetRatingEntry();
       render();
     });
   }
@@ -228,6 +237,7 @@ const bm = (function () {
         .createItem(obj)
         .then(data => {
           store.addNewBookmark(data);
+          resetRatingEntry();
           store.setAddForm(false);
           $('.js-add-new-form').trigger('reset');
           render();
@@ -264,6 +274,37 @@ const bm = (function () {
     });
   }
 
+  function resetRatingEntry() {
+    $('.js-add-new-form .rating span').removeClass('checked');
+    debugger;
+  }
+
+  function handleRatingButtons() {
+    $('main').on('click', '.js-star-rating input', function() {
+      // $('.js-add-new-form .js-star-rating.rating-edit span').removeClass('checked');
+      $(this).closest('div').find('span').removeClass('checked');
+      $(this).parent().addClass('checked');
+    });
+    // $('#js-bookmarks').on('click', '.js-star-rating input', function() {
+    //   $('#js-bookmarks .js-star-rating.rating-edit span').removeClass('checked');
+    //   $(this).parent().addClass('checked');
+    // });
+
+    //hover function
+    let selectedIndex = 0;
+    $('main').on('mouseenter', '.js-star-rating input', function() {
+      const checked = $(this).closest('div').find('span.checked');
+      if (checked) {
+        debugger;
+      }
+// .removeClass('hover');
+      $(this).parent().addClass('hover');
+    });
+    $('main').on('mouseleave', '.js-star-rating', function() {
+      $(this).closest('div').find('span').removeClass('hover');
+    });
+  }
+
   function bindEventListeners() {
     handleAddNewBookmark();
     handleSubmitNewBoomkark();
@@ -276,6 +317,7 @@ const bm = (function () {
     handleClickOnBookmark();
     handleSearchFilter();
     handleCloseErrorAlert();
+    handleRatingButtons();
   }
 
   return { render, bindEventListeners };
