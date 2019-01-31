@@ -32,13 +32,15 @@ fieldset {
 
 .sub-container {
   border-radius: 10px;
-  background-color: white;
-  padding: 10px 0;
+  background-color: white; 
   margin-bottom: 20px;
 }
 
 .button-container {
   float: right;
+}
+.button-container button {
+  margin-right:5px;
 }
 
 .bookmark-list{
@@ -52,8 +54,10 @@ fieldset {
 }
 
 .bookmark-entry.expanded {
-  min-height: 100px;
+  min-height: 120px;
 }
+
+.bookmark-entry {}
 
 .bookmark-header {
   /* background-color: blue; */
@@ -170,7 +174,7 @@ button {
 
 header { 
   display: flex;
-  height: 80px;
+  min-height: 80px;
   background-color: #309dcf;
   margin: 0 0 40px;
   justify-content: center;
@@ -178,7 +182,7 @@ header {
   box-shadow: 0 0 18px 5px rgba(0,0,0,0.22);
 }
 
-header h2 {
+header h1 {
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
   font-weight: bold;
@@ -188,7 +192,7 @@ header h2 {
   margin-right: 20px;
 }
 
-header h2 span {
+header h1 span {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
@@ -289,6 +293,11 @@ fieldset{
   display: inline-block;
   width: 80%;
 }
+.expanded-text-container a{
+  position: absolute;
+  bottom: 11px;
+  color:black;
+}
 
 .expanded .button-container {
   position: absolute;
@@ -300,6 +309,13 @@ fieldset{
   padding: 0 15px;
 }
 
+.description-entry {
+  margin-top: 0px;
+  max-height: 50px;
+  overflow-y: scroll;
+  font-weight: normal;
+  font-size: 14px;
+}
 .bookmark-header-edit{
   padding-bottom:15px;
 }
@@ -329,17 +345,73 @@ fieldset{
 }
 
 
+.bookmark-edit-form {
+  padding: 10px;
+}
 
-
-
-
-
-
-
-
+.mobile-add-text{
+  display:none;
+}
 
 
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 810px) {
+  header{
+    display:block;
+    min-height:85px;
+  }
+
+  header h1{
+    display: block !important;
+    text-align: center;
+    margin-right:0px !important;
+  }
+  nav{
+    display:block;
+    padding-left:10px;
+    padding-right:10px;
+  }
+  nav input {
+    width:53% !important;
+  }
+  nav select {
+    width:38%;
+  }
+
+
+}
+
+@media screen and (max-width: 550px) {
+  header{
+    min-height:125px;
+  }
+  header h1{
+    font-size:1.5em;
+  }
+  .mobile-add-text{
+    display:inherit;
+    display: inline-block;
+    margin-left:5px;
+  }
+
+  nav select {
+    width:45%;
+  }
+  nav button{
+    display:block;
+    width:100%;
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  header h1{
+    font-size:1.3em;
+    margin-bottom:6px;
+  }
 }

@@ -9,7 +9,7 @@ const bm = (function () {
   function editTemplate(bookmark) {
     return `
     <li data-item-id="${bookmark.id}" class="js-bookmark-entry bookmark-entry expanded">
-      <form class="js-bookmark-edit-form">
+      <form class="bookmark-edit-form js-bookmark-edit-form">
         <div class="js-bookmark-header-edit bookmark-header-edit">
           <img src="" alt="website Icon" class="bookmark-icon">
           <input value="${bookmark.title}" name="title" class="js-website-name-edit website-name-edit">
