@@ -1,3 +1,3 @@
 # Bookmark Manager
 
-To see wireframes and template HTML look at the master branch, and the respective folders.
+Wireframe screenshots (including mockup design) and template HTML can be viewed in the /wireframes folder.
