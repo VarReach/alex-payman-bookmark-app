@@ -11,7 +11,6 @@ const bm = (function () {
     <li data-item-id="${bookmark.id}" class="js-bookmark-entry bookmark-entry expanded">
       <form class="bookmark-edit-form js-bookmark-edit-form">
         <div class="js-bookmark-header-edit bookmark-header-edit">
-          <img src="" alt="website Icon" class="bookmark-icon">
           <input value="${bookmark.title}" name="title" class="js-website-name-edit website-name-edit">
           <input value="${bookmark.url}" name="url" class="js-website-url-edit website-url-edit">
           <div class="rating rating-edit js-star-rating">
@@ -33,7 +32,6 @@ const bm = (function () {
     return `
           <li class="js-bookmark-entry bookmark-entry expanded" data-item-id="${bookmark.id}">
             <div class="js-bookmark-header bookmark-header">
-              <img src="" alt="website Icon" class="bookmark-icon">
               <span class="js-website-name website-name">${bookmark.title}</span>
               <span class="js-website-url website-url">${bookmark.url}</span>
               <div class="rating js-star-rating">
@@ -69,7 +67,6 @@ const bm = (function () {
     return `
         <li class="js-bookmark-entry bookmark-entry condensed" data-item-id="${bookmark.id}">
           <div class="js-bookmark-header bookmark-header">
-            <img src="" alt="website Icon" class="bookmark-icon">
             <span class="js-website-name website-name">${bookmark.title}</span>
             <span class="js-website-url website-url">${bookmark.url}</span>
             <div class="rating js-star-rating">
