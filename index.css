@@ -329,9 +329,6 @@ fieldset{
   padding-left:0px;
 }
 
-.edit-buttons label {
-}
-
 .edit-description-entry {
   width:100%;
 }
@@ -382,7 +379,27 @@ fieldset{
     width:38%;
   }
 
+  .url-label input,.title-label input, .url-label, .title-label {
+    width: 100%;
+  }
 
+  .add-new-form {
+    padding: 10px;
+  }
+
+  .website-name-edit, .website-url-edit {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+
+  .rating-edit {
+    margin: 5px 0;
+  }
+
+  .website-url {
+    text-overflow: ellipsis;
+    max-width: 50%;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -407,6 +424,8 @@ fieldset{
     margin-top: 3px;
     margin-bottom: 5px;
   }
+
+
 }
 
 @media screen and (max-width: 330px) {
