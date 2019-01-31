@@ -362,6 +362,11 @@ fieldset{
     min-height:85px;
   }
 
+  .container{
+    padding-left:7px;
+    padding-right:7px;
+  }
+
   header h1{
     display: block !important;
     text-align: center;
@@ -396,10 +401,29 @@ fieldset{
     margin: 5px 0;
   }
 
-  .website-url {
+  .condensed .website-url {
     text-overflow: ellipsis;
-    max-width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width:49%;
   }
+
+  .expanded .website-name {
+    display:block;
+  }
+  .expanded .website-url {
+    max-width: 58%;
+    overflow-wrap: break-word;
+    display: inline-block;
+  }
+
+  .bookmark-entry.expanded{
+    min-height:150px;
+  }
+
+
 }
 
 @media screen and (max-width: 550px) {
@@ -425,12 +449,40 @@ fieldset{
     margin-bottom: 5px;
   }
 
+  .condensed .website-url{
+    max-width:40%;
+  }
 
+  .condensed .website-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width:30%;
+  }
+
+
+}
+
+@media screen and (max-width: 400px) {
+  .condensed .website-name{
+    max-width:25%;
+  }
+  .condensed .website-url{
+    max-width:40%;
+  }
+
+  .expanded .website-url {
+
+  }
 }
 
 @media screen and (max-width: 330px) {
   header h1{
     font-size:1.3em;
     margin-bottom:6px;
+  }
+  .website-url{
+    max-width:40%;
   }
 }
