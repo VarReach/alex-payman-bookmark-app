@@ -57,8 +57,6 @@ fieldset {
   min-height: 120px;
 }
 
-.bookmark-entry {}
-
 .bookmark-header {
   /* background-color: blue; */
   padding: 10px;
@@ -67,6 +65,7 @@ fieldset {
 .bookmark-header:hover {
   padding: 10px;
   background-color: #f0f0f0;
+  cursor: pointer;
 }
 
 .website-url {
@@ -117,6 +116,10 @@ button {
   color: #4f4f4f;
   border-radius: 50%;
   border: none;
+}
+
+main button:hover {
+  background-color: #beeaff;
 }
 
 /* The close button */
